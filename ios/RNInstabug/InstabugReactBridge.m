@@ -38,6 +38,10 @@ RCT_EXPORT_METHOD(startWithToken:(NSString *)token invocationEvent:(IBGInvocatio
     [Instabug setNetworkLoggingEnabled:NO];
 }
 
+RCT_EXPORT_METHOD(setCrashReportingEnabled:(BOOL)value) {
+    [Instabug setCrashReportingEnabled:value];
+}
+
 RCT_EXPORT_METHOD(invoke) {
     [Instabug invoke];
 }

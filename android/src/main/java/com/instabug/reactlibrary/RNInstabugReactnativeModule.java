@@ -1262,6 +1262,31 @@ public class RNInstabugReactnativeModule extends ReactContextBaseJavaModule {
     }
 
     /**
+     * Sets whether crash reporting is enabled or disabled.
+     *
+     * @param crashResportingState  A string to set crash reporting to be
+     * enabled or disabled.
+     */
+    @ReactMethod
+    public void setCrashReportingState(String crashResportingState) {
+        try {
+          switch(crashResportingState) {
+              case ENABLED:
+                  Instabug.setCrashReportingState(Feature.State.ENABLED);
+                  break;
+              case DISABLED:
+                  Instabug.setCrashReportingState(Feature.State.DISABLED);
+                  break;
+              default:
+                  Instabug.setCrashReportingState(Feature.State.DISABLED);
+          }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * Sets the threshold value of the shake gesture for android devices.
      * Default for android is an integer value equals 350.
      * you could increase the shaking difficulty level by

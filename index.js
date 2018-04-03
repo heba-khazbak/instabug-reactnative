@@ -682,6 +682,21 @@ module.exports = {
         Instabug.setReproStepsMode(reproStepsMode);
     },
 
+     /**
+     * Sets whether crash reporting is enabled or disabled.
+     *
+     * @param {crashResportingState} crashResportingState  A string to set crash reporting to be
+     * enabled or disabled.
+     */
+
+    setCrashReportingState: function (crashResportingState) {
+      if (Platform.OS === 'ios') {
+        Instabug.setCrashReportingState(crashResportingState == "enabled");
+      } else {
+        Instabug.setCrashReportingState(crashResportingState);
+      }
+    },
+
     /**
      * Sets user attribute to overwrite it's value or create a new one if it doesn't exist.
      *
